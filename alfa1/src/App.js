@@ -1,3 +1,5 @@
+import { fruits, mixFruits } from "./exampleData"
+
 function App() {
 
   const hello = function(name) { return `hallo aus der Funktion, ${name}`}
@@ -24,6 +26,7 @@ function App() {
       </li>
     )
 
+    const mix =  fruits.reduce((f1, f2) => mixFruits(f1, f2))
   return (
     <div>
       <h1>Hallo Michael</h1>
@@ -34,6 +37,12 @@ function App() {
       </ul>
       <h2>todo: output of myNumers && myNewNumbers in an Ordered List</h2>
       ....
+      <p>
+        {mix}
+      </p>
+      { mix.indexOf('Banana') > -1 ? (<p>Banane ist drin</p>) : (<p>Keine Banane enthalten</p>)
+
+      }
     </div>
   );
 }
