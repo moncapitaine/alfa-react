@@ -1,4 +1,4 @@
-import { fruitNames, mixFruits } from "./exampleData"
+import { fruitNames, fruits,  mixFruitnames, mixFruits } from "./exampleData"
 
 function App() {
 
@@ -26,7 +26,6 @@ function App() {
       </li>
     )
 
-    const mix =  fruitNames.reduce((f1, f2) => mixFruits(f1, f2))
 
     // todo: mix fruits and render the resulting color...
   return (
@@ -40,12 +39,18 @@ function App() {
       <h2>todo: output of myNumers && myNewNumbers in an Ordered List</h2>
       ....
       <p>
-        {mix}
+        {mixFruitnames(fruitNames)}
       </p>
-      { mix.indexOf('Banana') > -1 ? (<p>Banane ist drin</p>) : (<p>Keine Banane enthalten</p>)
-
-      }
+      <p>
+        {
+          fruitNames.indexOf('Banana') > -1 ? (<p>Banane ist drin</p>) : (<p>Keine Banane enthalten</p>)
+          }
+      </p>
+      <p>
+        {fruits.map(mixFruits)}
+      </p>
     </div>
+
   );
 }
 
