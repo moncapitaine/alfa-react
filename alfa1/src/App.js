@@ -1,4 +1,4 @@
-import { fruits, mixFruits } from "./exampleData"
+import { fruitNames, mixFruits } from "./exampleData"
 
 function App() {
 
@@ -26,7 +26,9 @@ function App() {
       </li>
     )
 
-    const mix =  fruits.reduce((f1, f2) => mixFruits(f1, f2))
+    const mix =  fruitNames.reduce((f1, f2) => mixFruits(f1, f2))
+
+    // todo: mix fruits and render the resulting color...
   return (
     <div>
       <h1>Hallo Michael</h1>
