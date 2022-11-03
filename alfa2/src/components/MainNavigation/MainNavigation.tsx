@@ -1,9 +1,9 @@
-import { CSSProperties } from "react"
-
+import styles from './MainNavigation.module.css'
 export const MainNavigation = () => {
-  const navStyles: CSSProperties = { display: 'flex', gap: '1em', justifyContent: "center" }
-  return (<nav style={navStyles}>
-    <a href="www.google.de">Google</a>
-    <a href="www.sueddeutsche.de">Sueddeutsche</a>
+  return (<nav className={styles['main-nav']}>
+    <ul className={styles['nav-list']}>
+      <li><a href="www.google.de">Google</a></li>
+      <li><a href="www.sueddeutsche.de">Sueddeutsche</a></li>
+    </ul>    
   </nav>)
 }
