@@ -1,13 +1,19 @@
 import styles from "./ToDoList.module.css"
-const ToDoList = () => { 
+export interface ToDoListProps {
+  itemList: string[],
+  title: string
+}
 
+const ToDoList = (props: ToDoListProps) => { 
   return (
-  <ul className={styles['todo-list']}>
-    <li>Aufräumen</li>
-    <li>Waschen</li>
-    <li>Kochen</li>
-    <li>Programmieren</li>
-  </ul>)
+    <>
+      <h2>{props.title}</h2>
+      <ul className={styles['todo-list']}>
+        {props.itemList.map((item: any) => 
+          (<li>{item}</li>))
+        }
+      </ul>
+    </>)
 }
 
 export default ToDoList
