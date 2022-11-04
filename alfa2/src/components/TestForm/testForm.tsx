@@ -1,13 +1,12 @@
-import { ChangeEventHandler } from "react"
+import { ChangeEventHandler, useState } from "react"
 
-let testText = "nix"
 export const TestForm = () => {
-
+  const [testText, setTestText] = useState('nix')
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    testText = e.target.value
+    setTestText(e.target.value)
   }
 
-  console.log('aussen log', testText)
+  console.log('re-run of TestForm', testText)
 
   return(<><form>
     <h2>TestForm</h2>
