@@ -6,7 +6,7 @@ export interface PokemonDetailsProps {
 }
 
 export interface PokemonData {
-  sprites: Record<string, string | null>
+  sprites: Record<string, string | undefined>
 }
 const loadDetail = async (url: string): Promise<PokemonData> => {
   const response = await fetch(url)
@@ -17,12 +17,10 @@ export const PokemonDetails = (props: PokemonDetailsProps) => {
   const [spriteUrl, setSpriteUrl] = useState<string | undefined>(undefined)
   useEffect(() => {
     (async () => {
-      const data = await loadDetail(props.pokemon.url)
-      const keys = Object.keys(data.sprites)
-      const notNullKey = keys.find((key) => data.sprites[key] !== null)
-      if (notNullKey !== undefined) {
-        setSpriteUrl(data.sprites[notNullKey] ?? undefined)
-      }
+      const { sprites } = await loadDetail(props.pokemon.url)
+      const notNullKey = Object.keys(sprites)
+        .find((key) => sprites[key] !== null)      
+      notNullKey && setSpriteUrl(sprites[notNullKey])
     })()
   }, [props.pokemon.url])
 

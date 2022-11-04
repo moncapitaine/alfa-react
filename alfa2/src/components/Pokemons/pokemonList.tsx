@@ -13,15 +13,13 @@ export const PokemonList = () => {
     const responseValue = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
     
     const data = await responseValue.json()
-    console.log('pokemons sind da', data)
     setPokemonList(data.results)
   }
 
   useEffect(() => {
     loadPokemons()
   }, [])
-  const c = JSON.stringify(pokemonList, null, 2)
-  console.log(c)
+
   return (
     <>
       <h2>Pokemon List</h2>
