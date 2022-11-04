@@ -5,9 +5,11 @@ export interface ToDoListProps {
 }
 
 const ToDoList = (props: ToDoListProps) => { 
+  const myStyle = { backgroundColor: 'black' }
+
   return (
     <>
-      <h2>{props.title}</h2>
+      <h2 style={myStyle}>{props.title}</h2>
       <ul className={styles['todo-list']}>
         {props.itemList.map((item: any) => 
           (<li>{item}</li>))
