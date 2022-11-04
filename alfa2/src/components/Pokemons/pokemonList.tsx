@@ -4,7 +4,7 @@ export const PokemonList = () => {
 
   const [response, setResponse] = useState<unknown>(null)
   const loadPokemons = async () => {
-    const responseValue = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+    const responseValue = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
     console.log('pokemons sind da', responseValue)
     const data = await responseValue.json()
     setResponse(data)
