@@ -8,7 +8,7 @@ export interface Pokemon {
 
 export const PokemonList = () => {
 
-  const [pokemonList, setPokemonList] = useState<Pokemon[]>(null)
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([])
   const loadPokemons = async () => {
     const responseValue = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
     
