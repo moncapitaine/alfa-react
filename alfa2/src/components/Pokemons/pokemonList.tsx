@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react"
+import { PokemonDetails } from "./pokemonDetails"
+
+export interface Pokemon {
+  name: string
+  url: string
+}
 
 export const PokemonList = () => {
 
-  const [response, setResponse] = useState<unknown>(null)
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>(null)
   const loadPokemons = async () => {
-    const responseValue = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-    console.log('pokemons sind da', responseValue)
+    const responseValue = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
+    
     const data = await responseValue.json()
-    setResponse(data)
+    console.log('pokemons sind da', data)
+    setPokemonList(data.results)
   }
 
   useEffect(() => {
     loadPokemons()
   }, [])
-  const c = JSON.stringify(response, null, 2)
+  const c = JSON.stringify(pokemonList, null, 2)
   console.log(c)
-  return (<ul>
-    <li>Pokemon list</li>
-    <code>
-      {JSON.stringify(response)}
-    </code>
-  </ul>)
+  return (
+    <>
+      <h2>Pokemon List</h2>
+      {pokemonList.map((pokemon) => <PokemonDetails pokemon={pokemon} />)}
+  </>)
 }
