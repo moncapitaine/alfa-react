@@ -2,8 +2,8 @@ import { useEffect, useState } from "react"
 
 const getNewMessage = ():string => (Math.random() + 1).toString(36).substring(7);
 
-const getNewMessageAsync = ():Promise<string> => new Promise((resolve, reject) => {
-  resolve(getNewMessage())
+const getNewMessageAsync = (timeout = 1000):Promise<string> => new Promise((resolve, reject) => {
+  setTimeout(() => resolve(getNewMessage()), timeout)
 })
 
 // Todo1: Implement getNewMessageAsync to return new message after 1234ms using setTimeout
@@ -18,10 +18,21 @@ export const PromisePlayground = () => {
 
   useEffect(() => {
     // synchrone Aufruf
-    setMessageList((oldList) => [...oldList, 'sync:' + getNewMessage()])
+    const newMessage = getNewMessage()
+    setMessageList((oldList) => [...oldList, 'sync:' + newMessage])
+
     // asynchrone Aufruf
-    getNewMessageAsync().then((newMessage) => setMessageList((oldList) => [...oldList, 'async:' + newMessage]))
+    const newMessagePromise = getNewMessageAsync(1234) // returns Promise of string
+    newMessagePromise.then((newMessage2) => setMessageList((oldList) => [...oldList, 'async:' + newMessage2]))
+
+    // Aufruf einer async
+    fillListWithNewMessage().then(() => console.log('async function call finished'))
   }, [])
+
+  const fillListWithNewMessage = async () => {
+    const newMessage = await getNewMessageAsync(123)
+    setMessageList((oldList) => [...oldList, 'async await:' + newMessage])
+  }
 
   return (<ul>
     {messageList.map((message) => (
