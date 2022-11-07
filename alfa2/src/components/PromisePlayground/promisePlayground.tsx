@@ -13,6 +13,9 @@ export const PromisePlayground = () => {
 
   const [messageList, setMessageList] = useState<string[]>([])
 
+  // 1. Moeglichkeit fuer setStateValue: setStateValue(newValue)
+  // 2. Moeglichkeit fuer setStateValue: setStateValue((oldValue) => `${oldValue} replaced with ${newValue}`)
+
   useEffect(() => {
     // synchrone Aufruf
     setMessageList((oldList) => [...oldList, 'sync:' + getNewMessage()])
