@@ -5,6 +5,7 @@ import { MainNavigation } from './components/MainNavigation/MainNavigation';
 import ToDoList, { ToDoListProps } from './components/ToDoList/ToDoList';
 import { TestForm } from './components/TestForm/testForm';
 import { PokemonList } from './components/Pokemons/pokemonList';
+import { PromisePlayground } from './components/PromisePlayground/promisePlayground';
 
 function App() {
   const todoItems = [
@@ -20,6 +21,9 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Promise Playground</h2>
+      <PromisePlayground />
+      <hr></hr>
       <img className="App-logo" src={logo} alt="Logo" />
       <h1>Welcome to Alfa2</h1>
       <PokemonList />
