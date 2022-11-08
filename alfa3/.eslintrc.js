@@ -27,7 +27,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'react/jsx-curly-brace-presence': 'error',
-    'unicorn/prevent-abbreviations': ['error', { allowList: { props: true, Props: true, files: true } }],
+    'unicorn/prevent-abbreviations': ['error', { allowList: { props: true, Props: true, env: true } }],
     'unicorn/filename-case': ['warn', { case: 'camelCase' }],
     'no-console': 'warn',
     'testing-library/prefer-user-event': 'error',
