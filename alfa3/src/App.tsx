@@ -27,7 +27,7 @@ function App() {
           onChange={(item) => setSelectedPerson({id: parseInt(item.id), name: item.name, unavailable: !!item.disabled})}
           options={people.map((person) => ({id: person.id.toString(), name: person.name, disabled: person.unavailable }))} />
       </div>
-      <h1 className="text-3xl text-center p-6">Ueberschrift 1</h1>
+      <h1 className="text-3xl text-center p-6">Hallo {selectedPerson?.name}</h1>
       <p className='p-6 border-[6px] border-[#FF0000]'>Das ist ein seltsamer Text</p>
     </div>
   );
