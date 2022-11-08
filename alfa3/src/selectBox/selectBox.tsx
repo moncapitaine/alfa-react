@@ -17,12 +17,12 @@ export const SelectBox: React.FunctionComponent<SelectBoxProps> = ({
   onChange,
   options,
 }) => {
-  const handleValueChange = (item: SelectBoxItem) => {
+  const HandleValueChange = (item: SelectBoxItem) => {
     onChange(item)
   }
   return (
     <div className="relative">
-      <Listbox value={value} onChange={handleValueChange}>
+      <Listbox value={value} onChange={HandleValueChange}>
         <Listbox.Button className="w-full pl-3 pr-1 py-1 rounded-full bg-gray-300 flex items-center justify-between">
           <span>{value?.name ?? 'Please select item...'}</span>
           <RiArrowDropDownLine size="1.7em" />

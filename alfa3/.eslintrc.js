@@ -15,7 +15,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
     'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    // 'plugin:unicorn/recommended',
+    'plugin:unicorn/recommended',
     'plugin:jest/recommended',
     'plugin:jest/style',
     'plugin:testing-library/react',
@@ -27,8 +27,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'react/jsx-curly-brace-presence': 'error',
-    // 'unicorn/prevent-abbreviations': ['error', { allowList: { props: true, Props: true } }],
-    // 'unicorn/filename-case': ['warn', { case: 'camelCase' }],
+    'unicorn/prevent-abbreviations': ['error', { allowList: { props: true, Props: true, files: true } }],
+    'unicorn/filename-case': ['warn', { case: 'camelCase' }],
     'no-console': 'warn',
     'testing-library/prefer-user-event': 'error',
     'react/self-closing-comp': 'error',
