@@ -24,7 +24,7 @@ function App() {
         <h2 className="text-2xl p-3">Select Box Example</h2>
         <SelectBox
           value={selectedPerson !== null ? ({id: selectedPerson?.id.toString(), name: selectedPerson?.name, disabled: selectedPerson?.unavailable}) : null}
-          onChange={(item) => setSelectedPerson({id: parseInt(item.id), name: item.name, unavailable: !!item.disabled})}
+          onChange={(item) => setSelectedPerson({id: Number.parseInt(item.id), name: item.name, unavailable: !!item.disabled})}
           options={people.map((person) => ({id: person.id.toString(), name: person.name, disabled: person.unavailable }))} />
       </div>
       <h1 className="text-3xl text-center p-6">Hallo {selectedPerson?.name}</h1>
