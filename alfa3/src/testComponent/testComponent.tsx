@@ -13,14 +13,20 @@ export const TestComponent: React.FC<TestComponentProps> = ({ prop1 }) => {
   const [state1, setState1] = useState('stateVal1')
 
   // avoid rerender if state1 does not change it's string
+  const handleButton1Click = () => {
+    const newValue = inputReference.current?.value
+    if (state1 === newValue) {
+      return
+    }
+    setState1(newValue ?? '')
+  }
+
   // set state1 on click to inputRef value, do not re-render if value does not change
   console.log('re-render', ++rendercount)
-  console.log(prop1, state1)
-  console.log('inputRef value', inputReference.current?.value)
   return (
     <div className='p-5'>
       <input className='border-2' ref={inputReference} type="text" defaultValue={state1} />
-      <button className='border-2 bg-gray-200' onClick={() => setState1('huhu')}>Change state1</button>
+      <button className='border-2 bg-gray-200' onClick={handleButton1Click}>Change state1</button>
       <p>prop1: {prop1}</p>
       <p>state1: {state1}</p>
       <p>inputRef: {inputReference.current?.value}</p>
