@@ -13,6 +13,7 @@ export const TestComponent: React.FC<TestComponentProps> = ({ prop1 }) => {
   const [state1, setState1] = useState('stateVal1')
 
   // avoid rerender if state1 does not change it's string
+  // set state1 on click to inputRef value, do not re-render if value does not change
   console.log('re-render', ++rendercount)
   console.log(prop1, state1)
   console.log('inputRef value', inputReference.current?.value)
