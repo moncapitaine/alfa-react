@@ -1,16 +1,22 @@
-import { useState } from "react"
-import { LanguageContext } from "./languageContext"
-import { LanguageId } from "./tools"
+import { useState } from 'react'
+import { LanguageContext, LanguageContextValues } from './languageContext'
+import { LanguageId } from './tools'
 
 export interface LanguageProviderProps {
   children: JSX.Element
 }
 
-export const LanguageProvider:React.FunctionComponent<LanguageProviderProps> = ({children}) => {
-  const [selectedLanguageId, setSelectedLanguageId] = useState<LanguageId | null>(null)
+export const LanguageProvider: React.FunctionComponent<
+  LanguageProviderProps
+> = ({ children }) => {
+  const [internalLanguageId, setInternalLanguageId] =
+    useState<LanguageId | null>(null)
+
+  const contextValues: LanguageContextValues = {
+    selectedLanguageId: internalLanguageId,
+    setSelectedLanguageId: setInternalLanguageId,
+  }
   return (
-    <LanguageContext.Provider value={{selectedLanguageId, setSelectedLanguageId}}>
-      {children}
-    </LanguageContext.Provider>
+    <LanguageContext.Provider value={contextValues}>{children}</LanguageContext.Provider>
   )
 }

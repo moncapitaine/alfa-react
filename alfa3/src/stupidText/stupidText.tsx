@@ -2,6 +2,7 @@ import { useLanguageContext } from '../languageContext'
 
 export const StupidText = () => {
   const { selectedLanguageId } = useLanguageContext()
+
   return (
     <>
       {selectedLanguageId === 'de' && (
