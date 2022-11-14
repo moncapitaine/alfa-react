@@ -15,10 +15,9 @@ export const TestComponent: React.FC<TestComponentProps> = ({ prop1 }) => {
   const [state1, setState1] = useState('stateVal1')
   const [myItems, setMyItems] = useState<Array<string>>([])
 
-  const newValue = inputReference.current?.value ?? ''
-
   // avoid rerender if state1 does not change it's string
   const handleButton1Click = () => {
+    const newValue = inputReference.current?.value ?? ''
     if (state1 === newValue) {
       return
     }
@@ -26,14 +25,22 @@ export const TestComponent: React.FC<TestComponentProps> = ({ prop1 }) => {
   }
 
   const handleButton2Click = () => {
+    const newValue = inputReference.current?.value ?? ''
     myItems.push(newValue)
     // setMyItems(myItems)
     // todo: fix the rendering of my items, force that they are rendered if a new item was added
+
+    // rule: states have to be immutable.
+    const newArray = [...myItems]
+    // const newArray = myItems
+
+    console.log(newArray, myItems)
+    setMyItems(newArray)
   }
 
   // set state1 on click to inputRef value, do not re-render if value does not change
   console.log('re-render', ++rendercount)
-  console.log(myItems)
+  // console.log(myItems)
   return (
     <div className='p-5'>
       <input className='border-2' ref={inputReference} type="text" defaultValue={state1} />

@@ -4,6 +4,7 @@ import { LanguageSelector } from './languageSelector/languageSelector'
 import { SelectBox } from './selectBox/selectBox'
 import { StupidText } from './stupidText/stupidText'
 import { TestComponent } from './testComponent/testComponent'
+import { TestComponent2 } from './testComponent/testComponent2'
 
 interface Person {
   id: number
@@ -57,6 +58,9 @@ function App() {
         <h1 className="text-3xl text-center p-6">
           Hallo {selectedPerson?.name}
         </h1>
+        <div>
+          <TestComponent2 />
+        </div>
         <div>
           <TestComponent prop1='propVal1' />
         </div>
