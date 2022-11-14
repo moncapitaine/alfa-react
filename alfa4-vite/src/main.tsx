@@ -7,7 +7,7 @@ import { UserContext } from './userContext'
 const Root = () => {
 const [userName, setUserName] = useState<string | null>(null)
 return (
-    <UserContext.Provider value={{userName, setUserName}}>
+    <UserContext.Provider value={{userName, setUserName, acl: [] }}>
       <App />
     </UserContext.Provider>
   )

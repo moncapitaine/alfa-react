@@ -1,13 +1,11 @@
 import { createContext } from "react";
+import { UserContextProps } from "./userContextTypes";
 
-export interface UserContextProps {
-  userName: string | null
-  setUserName: (newName: string | null) => void
-}
 
 const defaultContextProps: UserContextProps = {
   userName: null,
-  setUserName: (newName) => console.log('newname cannot be set because there is no UserContext provider', newName)
+  setUserName: (newName) => console.log('newname cannot be set because there is no UserContext provider', newName),
+  acl: []
 }
 
 export const UserContext 
